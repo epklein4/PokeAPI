@@ -1,11 +1,11 @@
 import ListData from "./ListData"
 
-const Select = () => {
+const Select = ({ className }: { className: string }) => {
     return (
-        <>
+        <div className={className}>
             <input list="pokemon-list" id="pokemon-choice"/>
-            <ListData/>
-        </>
+            <ListData id="pokemon-list"/>
+        </div>
     )
 }
 

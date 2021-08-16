@@ -5,7 +5,10 @@ import Select from './components/Select';
 function App() {
   return (
     <div className="App">
-      <Select/>
+      <div className="container">
+        <Select className="search"/>
+        
+      </div>
     </div>
   );
 }

@@ -1,28 +1,30 @@
 import { useState, useEffect } from "react";
+import queryFetch from "../utils/queryFetch";
 
-const ListData = () => {
-    const PokemonList = async () => {
-        const query = await queryFetch(`
-            query {
-                getPokemonList {
-                    names
-                }
-            }
-        `)
-        await query.data.getPokemonList.names.map((name: string) => {
-            setNames([...names, {value: name, label: name}])
-        })
-    }
-
-    useEffect(() => { PokemonList() })
-
+const ListData = ({ id }: {id: string}) => {
     const [names, setNames] = useState([{value: "", label: ""}]);
+    
+    useEffect(() => {
+        const PokemonList = async () => {
+            const query = await queryFetch(`
+                query {
+                    getPokemonList {
+                        names
+                    }
+                }
+            `)
+            return await query.data.getPokemonList.names.map((name: string) => {
+                return setNames(names => [...names, {value: name, label: name}])
+            })
+        }
+        PokemonList()
+    }, [])
 
     return (
-        <datalist>
+        <datalist id={id}>
             {names.map(name => (
                 <option
-                  key={name.value}
+                  key={name.value + Math.random()}
                   value={name.value}
                 >
                   {name.label}
@@ -30,21 +32,6 @@ const ListData = () => {
             ))}
         </datalist>
     )
-}
-
-const queryFetch = async (query: string, variables?: any) => {
-    const result = await fetch(
-        'https://kny8blar39.execute-api.us-east-1.amazonaws.com/dev/graphql', 
-        {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                query: query,
-                variables: variables
-            })
-        }
-    )
-    return result.json();
 }
 
 export default ListData
