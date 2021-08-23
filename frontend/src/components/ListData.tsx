@@ -13,6 +13,7 @@ const ListData = ({ id }: {id: string}) => {
                     }
                 }
             `)
+            setNames(names => []);
             return await query.data.getPokemonList.names.map((name: string) => {
                 return setNames(names => [...names, {value: name, label: name}])
             })
@@ -21,16 +22,16 @@ const ListData = ({ id }: {id: string}) => {
     }, [])
 
     return (
-        <datalist id={id}>
+        <>
             {names.map(name => (
                 <option
-                  key={name.value + Math.random()}
+                  key={name.value}
                   value={name.value}
                 >
                   {name.label}
                 </option>
             ))}
-        </datalist>
+        </>
     )
 }
 

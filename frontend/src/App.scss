@@ -14,6 +14,7 @@
     height: 80%;
     width: 450px;
     background-color: hsl(48, 100%, 50%);
+    border: 4px solid black;
     border-radius: 1rem;
 
     display: grid;
@@ -27,4 +28,21 @@
 
 .search {
     grid-area: search;
+}
+
+select {
+    width: 3in;
+    color: black;
+    background-color: hsl(0, 0, 90%);
+    border: 4px black solid;
+    border-radius: 1rem;
+}
+
+.pokemon__sprite {
+    background-color: hsl(0, 0, 90%);
+    border: 4px black solid;
+    border-radius: 1rem;
+    object-fit: contain;
+    height: 3in;
+    width: 3in
 }

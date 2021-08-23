@@ -1,10 +1,22 @@
 import ListData from "./ListData"
 
-const Select = ({ className }: { className: string }) => {
+const Select = (
+        { className, selected }: 
+        { className: string, selected: Function }
+    ) => {
+
+    const handleChange = (e: any) => {
+        selected(e.target.value)
+    }
+
     return (
         <div className={className}>
-            <input list="pokemon-list" id="pokemon-choice"/>
-            <ListData id="pokemon-list"/>
+            <select 
+                id="pokemon-choice"
+                onChange={handleChange}
+            >
+                <ListData id="pokemon-list"/>
+            </select>
         </div>
     )
 }
