@@ -17,7 +17,6 @@ const Abilities = ({ pokemonName }: { pokemonName: string }) => {
                 }
             `, { name: pokemonName }
             )
-            console.log(query.data.getPokemon.abilities)
             setAbilities(query.data.getPokemon.abilities.map((ability: any) => {
                 return ability.name;
             }))
