@@ -1,9 +1,8 @@
 import ListData from "./ListData"
 
 const Select = (
-        { className, selected }: 
-        { className: string, selected: Function }
-    ) => {
+    { className, selected }: { className: string, selected: Function }
+) => {
 
     const handleChange = (e: any) => {
         selected(e.target.value)
@@ -11,15 +10,14 @@ const Select = (
 
     return (
         <div className={className}>
-            <select 
+            <select
                 id="pokemon-choice"
                 onChange={handleChange}
             >
-                <ListData id="pokemon-list"/>
+                <ListData id="pokemon-list" />
             </select>
         </div>
     )
 }
 
 export default Select
-    

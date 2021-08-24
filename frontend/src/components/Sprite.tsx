@@ -5,7 +5,7 @@ const Sprite = ({ pokemonName }: { pokemonName: string }) => {
     const [pokemonSprite, setPokemonSprite] = useState("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png")
 
     useEffect(() => {
-        const querySprite = async(pokemonName: string) => {
+        const querySprite = async (pokemonName: string) => {
             const pokemon = await queryFetch(`
                 query {
                     getPokemon(name: "${pokemonName}") {
@@ -19,11 +19,11 @@ const Sprite = ({ pokemonName }: { pokemonName: string }) => {
         try { querySprite(pokemonName) }
         catch { console.error("Failed to find Pokemon") }
     }
-    , [pokemonName]
+        , [pokemonName]
     )
-    
+
     return (
-        <img className="pokemon__sprite" src={pokemonSprite} alt=""/>
+        <img className="pokemon__sprite" src={pokemonSprite} alt="" />
     )
 }
 

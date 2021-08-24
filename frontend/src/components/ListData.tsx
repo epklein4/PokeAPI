@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import queryFetch from "../utils/queryFetch";
 
-const ListData = ({ id }: {id: string}) => {
-    const [names, setNames] = useState([{value: "", label: ""}]);
-    
+const ListData = ({ id }: { id: string }) => {
+    const [names, setNames] = useState([{ value: "", label: "" }]);
+
     useEffect(() => {
         const PokemonList = async () => {
             const query = await queryFetch(`
@@ -15,7 +15,7 @@ const ListData = ({ id }: {id: string}) => {
             `)
             setNames(names => []);
             return await query.data.getPokemonList.names.map((name: string) => {
-                return setNames(names => [...names, {value: name, label: name}])
+                return setNames(names => [...names, { value: name, label: name }])
             })
         }
         PokemonList()
@@ -25,10 +25,10 @@ const ListData = ({ id }: {id: string}) => {
         <>
             {names.map(name => (
                 <option
-                  key={name.value}
-                  value={name.value}
+                    key={name.value}
+                    value={name.value}
                 >
-                  {name.label}
+                    {name.label}
                 </option>
             ))}
         </>

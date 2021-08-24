@@ -12,11 +12,11 @@ function App() {
 
   return (
     <div className="App">
-      <img className="logo" src={PokeSearch} alt=""/>
+      <img className="logo" src={PokeSearch} alt="" />
       <div className="container">
-        <Select className="search" selected={setPokemonName}/>
-        <Sprite pokemonName={pokemonName}/>
-        <Abilities pokemonName={pokemonName}/>
+        <Select className="search" selected={setPokemonName} />
+        <Sprite pokemonName={pokemonName} />
+        <Abilities pokemonName={pokemonName} />
       </div>
     </div>
   );

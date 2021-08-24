@@ -6,7 +6,7 @@ const Abilities = ({ pokemonName }: { pokemonName: string }) => {
     const [abilities, setAbilities] = useState([""])
 
     useEffect(() => {
-        const queryAbilities = async() => {
+        const queryAbilities = async () => {
             const query = await queryFetch(`
                 query {
                     getPokemon(name: "${pokemonName}") {
